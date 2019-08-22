@@ -1,0 +1,14 @@
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/bin/Debug/netcoreapp2.2/RestWithAPI.deps.json
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/bin/Debug/netcoreapp2.2/RestWithAPI.runtimeconfig.json
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/bin/Debug/netcoreapp2.2/RestWithAPI.runtimeconfig.dev.json
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/bin/Debug/netcoreapp2.2/RestWithAPI.dll
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/bin/Debug/netcoreapp2.2/RestWithAPI.pdb
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.csprojAssemblyReference.cache
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.csproj.CoreCompileInputs.cache
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.RazorAssemblyInfo.cache
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.RazorAssemblyInfo.cs
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.AssemblyInfoInputs.cache
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.AssemblyInfo.cs
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.RazorTargetAssemblyInfo.cache
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.dll
+/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/Debug/netcoreapp2.2/RestWithAPI.pdb
