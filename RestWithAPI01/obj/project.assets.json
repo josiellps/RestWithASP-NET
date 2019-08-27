@@ -12079,11 +12079,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/RestWithAPI.csproj",
+      "projectUniqueName": "/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI01/RestWithAPI.csproj",
       "projectName": "RestWithAPI",
-      "projectPath": "/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/RestWithAPI.csproj",
+      "projectPath": "/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI01/RestWithAPI.csproj",
       "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI/obj/",
+      "outputPath": "/home/josiel/Documentos/projetos/aulasUdemy/RestWithASP-NET/RestWithAPI01/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
