@@ -10,14 +10,23 @@ namespace RestWithAPI.Controllers
     [ApiController]
     public class CalculatorController : ControllerBase
     {
-        private const string V = "Erro ao somar os valores firstNumber:,secondNumber:";
-
-        [HttpGet("{firstNumber}/{secondNumber}")]
+        [HttpGet("Sum/{firstNumber}/{secondNumber}")]
         public IActionResult Sum(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
                 var soma = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber));
+                return Ok(soma.ToString());
+            }
+            return BadRequest($"Erro ao somar os valores firstNumber:{firstNumber},secondNumber:{secondNumber}");
+        }
+
+           [HttpGet("Subtraction/{firstNumber}/{secondNumber}")]
+        public IActionResult Subtraction(string firstNumber, string secondNumber)
+        {
+            if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
+            {
+                var soma = (ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber));
                 return Ok(soma.ToString());
             }
             return BadRequest($"Erro ao somar os valores firstNumber:{firstNumber},secondNumber:{secondNumber}");
