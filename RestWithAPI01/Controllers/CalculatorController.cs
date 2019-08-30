@@ -53,7 +53,7 @@ namespace RestWithAPI.Controllers
             }
             return BadRequest($"Erro ao somar os valores firstNumber:{firstNumber},secondNumber:{secondNumber}");
         }
-
+        
         [HttpGet("squeare-root/{firstNumber}")]
         public IActionResult SqueareRoot(string firstNumber)
         {
