@@ -3,18 +3,18 @@ using RestWithAPI02.Model;
 
 namespace RestWithAPI03.Model.Context
 {
-    public class MySQLContext:DbContext
+    public class MySQLContext : DbContext
     {
         public MySQLContext()
         {
-            
+
         }
 
-        public MySQLContext(DbContextOptions<MySQLContext> options):base(options)
+        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
         {
-            
+
         }
 
-        public DbSet<Person> persons;
+        public DbSet<Person> persons { get; set; }
     }
 }

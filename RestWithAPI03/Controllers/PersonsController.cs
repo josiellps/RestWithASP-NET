@@ -8,8 +8,10 @@ using RestWithAPI02.Services;
 
 namespace RestWithAPI.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [ApiVersion( "1.0" )]
     [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]" )]
     public class PersonsController : ControllerBase
     {
         IPersonService _personService;
@@ -76,10 +78,8 @@ namespace RestWithAPI.Controllers
         [HttpPut]
         public IActionResult Put([FromBody]Person person)
         {
-            if (_personService.Update(person) != null)
-                return Ok(person);
-            return BadRequest();
-
+            var result = _personService.Update(person);            
+                return Ok(result);            
         }
 
         [HttpDelete("{id}")]
