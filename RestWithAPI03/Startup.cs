@@ -11,8 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RestWithAPI02.Services;
-using RestWithAPI02.Services.Implementation;
+using RestWithAPI03.Business;
+using RestWithAPI03.Business.Implementation;
+using RestWithAPI03.Repository;
+using RestWithAPI03.Repository.Implementattion;
 using RestWithAPI03.Model.Context;
 
 namespace RestWithAPI
@@ -33,7 +35,9 @@ namespace RestWithAPI
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
-            services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IPersonBusiness, PersonBusiness>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddApiVersioning();

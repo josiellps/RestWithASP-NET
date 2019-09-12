@@ -1,4 +1,4 @@
-namespace RestWithAPI02.Model
+namespace RestWithAPI03.Model
 {
     public class Person
     {

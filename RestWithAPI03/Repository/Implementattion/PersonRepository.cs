@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RestWithAPI02.Model;
+using RestWithAPI03.Model;
 using RestWithAPI03.Model.Context;
+using RestWithAPI03.Repository;
+using RestWithAPI03.Business;
 
-namespace RestWithAPI02.Services.Implementation
+namespace RestWithAPI03.Repository.Implementattion
 {
-    public class PersonService : IPersonService
+    public class PersonRepository : IPersonRepository
     {
         private MySQLContext _context;
-        public PersonService(MySQLContext context)
+        public PersonRepository(MySQLContext context)
         {
             _context = context;
         }
@@ -28,7 +30,7 @@ namespace RestWithAPI02.Services.Implementation
             }
         }
 
-        public void Delete(long id)
+        public void Delete(long? id)
         {
             var result = _context.persons.SingleOrDefault(p => p.Id == id);
             if (result != null)
@@ -50,14 +52,14 @@ namespace RestWithAPI02.Services.Implementation
             }
         }
 
-        public Person FindById(long id)
+        public Person FindById(long? id)
         {
             return _context.persons.SingleOrDefault(p => p.Id == id);
         }
 
         public Person Update(Person person)
         {
-            if (!Exists(person)) return new Person();
+            if (!Exists(person.Id)) return new Person();
 
             var result = _context.persons.SingleOrDefault(p => p.Id.Equals(person.Id));
 
@@ -66,9 +68,9 @@ namespace RestWithAPI02.Services.Implementation
             return person;
         }
 
-        private bool Exists(Person person)
+        public bool Exists(long? id)
         {
-            return _context.persons.Any(p => p.Id.Equals(person.Id));
+            return _context.persons.Any(p => p.Id.Equals(id));
         }
     }
 }

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using RestWithAPI02.Model;
+using RestWithAPI03.Model;
 
 namespace RestWithAPI03.Model.Context
 {
