@@ -9,9 +9,9 @@ using RestWithAPI03.Business;
 namespace RestWithAPI.Controllers
 {
     //[Route("api/[controller]")]
-    [ApiVersion( "1.0" )]
+    [ApiVersion("1.0")]
     [ApiController]
-    [Route("api/v{version:apiVersion}/[controller]" )]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonsController : ControllerBase
     {
         IPersonBusiness _personBusiness;
@@ -48,13 +48,9 @@ namespace RestWithAPI.Controllers
             {
                 var person = _personBusiness.FindById(id);
                 if (person == null)
-                {
                     return NotFound();
-                }
-                else
-                {
-                    return Ok(person);
-                }
+                
+                return Ok(person);                
             }
             catch (Exception ex)
             {
@@ -66,20 +62,22 @@ namespace RestWithAPI.Controllers
         public IActionResult Post([FromBody] Person person)
         {
             if (person == null)
-            {
                 return BadRequest();
-            }
-            else
-            {
-                return new ObjectResult(_personBusiness.Create(person));
-            }
+
+            return new ObjectResult(_personBusiness.Create(person));
+
         }
 
         [HttpPut]
         public IActionResult Put([FromBody]Person person)
         {
-            var result = _personBusiness.Update(person);            
-                return Ok(result);            
+            if(person == null)return BadRequest();
+
+            var result = _personBusiness.Update(person);
+
+            if(result == null)return BadRequest();
+
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]

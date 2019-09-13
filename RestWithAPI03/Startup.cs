@@ -16,28 +16,54 @@ using RestWithAPI03.Business.Implementation;
 using RestWithAPI03.Repository;
 using RestWithAPI03.Repository.Implementattion;
 using RestWithAPI03.Model.Context;
+using MySql.Data.MySqlClient;
 
 namespace RestWithAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+
+        public IConfiguration _configuration { get; }
+        private readonly ILogger _logger;
+        public IHostingEnvironment _hostingEnvironment;
+        public Startup(IConfiguration configuration, ILogger<Startup> logger, IHostingEnvironment hostingEnvironment)
         {
-            Configuration = configuration;
+            _configuration = configuration;
+            _logger = logger;
+            _hostingEnvironment = hostingEnvironment;
         }
-
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration["MySQLConnection:MySQLConnectionString"];
+            var connection = _configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+
+            if(_hostingEnvironment.IsDevelopment())
+            {
+                try
+                {
+                    var envolveConnection = new MySql.Data.MySqlClient.MySqlConnection(connection);
+
+                    var evolve = new Evolve.Evolve(envolveConnection , msg=>_logger.LogInformation(msg))
+                    {
+                        Locations = new List<string>{ "db/migrations" },
+                        IsEraseDisabled = true
+                    };
+
+                    evolve.Migrate();
+                    //using MySql.Data.MySqlClient;
+                }
+                catch (System.Exception ex)
+                {
+                    
+                    _logger.LogCritical("Migration Database Failed.====>", ex);
+                }
+            }
 
             services.AddScoped<IPersonBusiness, PersonBusiness>();
             services.AddScoped<IPersonRepository, PersonRepository>();
-            
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddApiVersioning();
