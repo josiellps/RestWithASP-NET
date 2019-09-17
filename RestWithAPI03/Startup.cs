@@ -50,14 +50,11 @@ namespace RestWithAPI
                         Locations = new List<string>{ "db/migrations" },
                         IsEraseDisabled = true
                     };
-
-                    evolve.Migrate();
-                    //using MySql.Data.MySqlClient;
+                    evolve.Migrate();                    
                 }
                 catch (System.Exception ex)
-                {
-                    
-                    _logger.LogCritical("Migration Database Failed.====>", ex);
+                {                    
+                    _logger.LogCritical($"Migration Database Failed.====>{ex.Message}", ex.Message);
                 }
             }
 
