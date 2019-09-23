@@ -25,7 +25,8 @@ namespace RestWithAPI.Controllers
         {
             try
             {
-                return Ok(_bookBusiness.FindAll());
+                var lista = _bookBusiness.FindAll();
+                return Ok(lista);
             }
             catch (Exception ex)
             {
