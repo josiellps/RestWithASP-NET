@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAPI.Model;
 using RestWithAPI.Business;
+using RestWithAPI.Repository.Generic;
 
 namespace RestWithAPI.Controllers
 {
@@ -14,8 +15,8 @@ namespace RestWithAPI.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonsController : ControllerBase
     {
-        IPersonBusiness _personBusiness;
-        public PersonsController(IPersonBusiness personBusiness)
+        IRepository<Person> _personBusiness;
+        public PersonsController(IRepository<Person> personBusiness)
         {
             _personBusiness = personBusiness;
         }
