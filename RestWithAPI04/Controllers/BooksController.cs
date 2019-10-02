@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAPI.Model;
 using RestWithAPI.Business;
+using RestWithAPI04.Data.Converters;
+using RestWithAPI04.Data.VO;
 
 namespace RestWithAPI.Controllers
 {
@@ -14,10 +16,12 @@ namespace RestWithAPI.Controllers
     public class BooksController : ControllerBase
     {
         private IBookBusiness _bookBusiness;
-        
-        public BooksController(IBookBusiness bookBusiness)
+        private BookConverter _converter;
+
+        public BooksController(IBookBusiness bookBusiness, BookConverter converter)
         {
             _bookBusiness = bookBusiness;
+            _converter = converter;
         }
 
         [HttpGet]
@@ -39,7 +43,7 @@ namespace RestWithAPI.Controllers
         {
             try
             {
-                return Ok(_bookBusiness.FindById(id));
+                return Ok(_converter.Parse(_bookBusiness.FindById(id)));
             }
             catch (Exception ex)
             {
@@ -48,19 +52,19 @@ namespace RestWithAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Books books)
-        {                      
-            return new ObjectResult(_bookBusiness.Create(books));
+        public IActionResult Post([FromBody] BookVO books)
+        {
+            return new ObjectResult(_converter.Parse(_bookBusiness.Create(books)));
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody]Books books)
+        public IActionResult Put([FromBody]BookVO books)
         {
-             if (books == null) return BadRequest();
+            if (books == null) return BadRequest();
 
-             var result = _bookBusiness.Update(books);
+            var result = _bookBusiness.Update(books);
 
-             if (result == null) return BadRequest();
+            if (result == null) return BadRequest();
 
             return Ok();
         }
