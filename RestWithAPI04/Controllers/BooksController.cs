@@ -18,10 +18,10 @@ namespace RestWithAPI.Controllers
         private IBookBusiness _bookBusiness;
         private BookConverter _converter;
 
-        public BooksController(IBookBusiness bookBusiness, BookConverter converter)
+        public BooksController(IBookBusiness bookBusiness)
         {
             _bookBusiness = bookBusiness;
-            _converter = converter;
+            _converter = new BookConverter();
         }
 
         [HttpGet]

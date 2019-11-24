@@ -15,10 +15,10 @@ namespace RestWithAPI.Business.Implementation
     {
         private IRepository<Books> _bookBusiness;
         private BookConverter _converter;
-        public BookBusiness(IRepository<Books> bookBusiness,BookConverter converter)
+        public BookBusiness(IRepository<Books> bookBusiness)
         {
             _bookBusiness = bookBusiness;
-            _converter = converter;
+            _converter = new BookConverter();
         }
 
         public BookVO Create(BookVO books)
