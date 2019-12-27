@@ -18,6 +18,7 @@ using RestWithAPI.Repository.Implementattion;
 using RestWithAPI.Model.Context;
 using MySql.Data.MySqlClient;
 using RestWithAPI.Repository.Generic;
+using Microsoft.Net.Http.Headers;
 
 namespace RestWithAPI
 {
@@ -64,7 +65,14 @@ namespace RestWithAPI
             services.AddScoped<IBookBusiness, BookBusiness>();
             services.AddScoped(typeof(IRepository<>),typeof(GenericRepository<>));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true;
+                options.FormatterMappings.SetMediaTypeMappingForFormat("xml", MediaTypeHeaderValue.Parse("text/xml"));
+                options.FormatterMappings.SetMediaTypeMappingForFormat("json", MediaTypeHeaderValue.Parse("application/json"));
+            }
+            ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            .AddXmlSerializerFormatters();
 
             services.AddApiVersioning();
         }
