@@ -13,8 +13,7 @@ using RestWithAPI04.Data.Converters;
 namespace RestWithAPI.Controllers
 {
     //[Route("api/[controller]")]
-    [ApiVersion("1.0")]
-    [ApiController]
+    [ApiVersion("1.0")]    
     [Route("api/v{version:apiVersion}/[controller]")]
     public class PersonsController : ControllerBase
     {        

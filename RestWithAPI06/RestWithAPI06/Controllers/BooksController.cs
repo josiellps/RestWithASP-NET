@@ -11,7 +11,6 @@ using RestWithAPI04.Data.VO;
 namespace RestWithAPI.Controllers
 {
     [ApiVersion("1.0")]
-    [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
     public class BooksController : ControllerBase
     {
