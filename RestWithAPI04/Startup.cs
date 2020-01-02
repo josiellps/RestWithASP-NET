@@ -62,6 +62,7 @@ namespace RestWithAPI
             services.AddScoped<IPersonBusiness, PersonBusiness>();
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IBookBusiness, BookBusiness>();
+            
             services.AddScoped(typeof(IRepository<>),typeof(GenericRepository<>));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

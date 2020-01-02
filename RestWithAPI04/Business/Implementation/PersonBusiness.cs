@@ -5,23 +5,27 @@ using RestWithAPI.Model;
 using RestWithAPI.Model.Context;
 using RestWithAPI.Repository;
 using RestWithAPI.Business;
+using RestWithAPI04.Data.Converters;
+using RestWithAPI04.Data.VO;
 
 namespace RestWithAPI.Business.Implementation
 {
     public class PersonBusiness : IPersonBusiness
     {
         private IPersonRepository _personRepository;
-        public PersonBusiness(IPersonRepository personRepository)
+        private readonly PersonConverter _converter;
+        public PersonBusiness(IPersonRepository personRepository, PersonConverter converter)
         {
-             _personRepository = personRepository;
+            _personRepository = personRepository;
+            _converter = converter;
         }
 
-        public Person Create(Person person)
+        public PersonVO Create(PersonVO person)
         {
             try
             {
-                _personRepository.Create(person);
-                return person;
+                var _personEntity = _converter.Parse(person);
+                return _converter.Parse(_personRepository.Create(_personEntity));
             }
             catch (Exception ex)
             {
@@ -38,11 +42,11 @@ namespace RestWithAPI.Business.Implementation
             }
         }
 
-        public List<Person> FindAll()
+        public List<PersonVO> FindAll()
         {
             try
             {
-                return _personRepository.FindAll();
+                return _converter.ParseList(_personRepository.FindAll());
             }
             catch (Exception ex)
             {
@@ -50,19 +54,20 @@ namespace RestWithAPI.Business.Implementation
             }
         }
 
-        public Person FindById(long? id)
+        public PersonVO FindById(long? id)
         {
-            return _personRepository.FindById(id);
+            return _converter.Parse(_personRepository.FindById(id));
         }
 
-        public Person Update(Person person)
+        public PersonVO Update(PersonVO person)
         {
-            if (!Exists(person.Id)) return new Person();
+            if (!Exists(person.Id)) return new PersonVO();
 
             var result = _personRepository.FindById(person.Id);
+            var personEntity = _converter.Parse(person);
 
-            _personRepository.Update(person);            
-            return person;
+            personEntity  =_personRepository.Update(personEntity);
+            return _converter.Parse(personEntity);
         }
 
         public bool Exists(long? id)

@@ -1,0 +1,1 @@
+#DROP TABLE `rest_with_asp_net_udemy`.`books`;
