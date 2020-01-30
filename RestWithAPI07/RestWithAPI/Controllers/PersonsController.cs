@@ -7,8 +7,8 @@ using RestWithAPI.Model;
 using RestWithAPI.Business;
 using RestWithAPI.Repository.Generic;
 using Tapioca.HATEOAS;
-using RestWithAPI04.Data.VO;
-using RestWithAPI04.Data.Converters;
+using RestWithAPI.Data.VO;
+using RestWithAPI.Data.Converters;
 
 namespace RestWithAPI.Controllers
 {

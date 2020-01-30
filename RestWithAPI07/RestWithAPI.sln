@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithAPI06", "RestWithAPI06\RestWithAPI06.csproj", "{B43383C7-0A9A-48DB-BC09-7F083D88AA35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithAPI07", "RestWithAPI\RestWithAPI.csproj", "{B43383C7-0A9A-48DB-BC09-7F083D88AA35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

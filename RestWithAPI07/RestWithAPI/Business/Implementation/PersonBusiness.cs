@@ -5,8 +5,8 @@ using RestWithAPI.Model;
 using RestWithAPI.Model.Context;
 using RestWithAPI.Repository;
 using RestWithAPI.Business;
-using RestWithAPI04.Data.Converters;
-using RestWithAPI04.Data.VO;
+using RestWithAPI.Data.Converters;
+using RestWithAPI.Data.VO;
 
 namespace RestWithAPI.Business.Implementation
 {

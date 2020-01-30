@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Tapioca.HATEOAS;
 
-namespace RestWithAPI04.Data.VO
+namespace RestWithAPI.Data.VO
 {
     public class PersonVO : ISupportsHyperMedia
     {

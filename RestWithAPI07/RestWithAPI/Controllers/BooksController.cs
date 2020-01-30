@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using RestWithAPI.Model;
 using RestWithAPI.Business;
-using RestWithAPI04.Data.Converters;
-using RestWithAPI04.Data.VO;
+using RestWithAPI.Data.Converters;
+using RestWithAPI.Data.VO;
 
 namespace RestWithAPI.Controllers
 {

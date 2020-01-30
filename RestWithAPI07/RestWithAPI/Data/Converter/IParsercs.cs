@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace RestWithAPI04.Data.Converter
+namespace RestWithAPI.Data.Converter
 {
     public interface IParser<O,D>
     {

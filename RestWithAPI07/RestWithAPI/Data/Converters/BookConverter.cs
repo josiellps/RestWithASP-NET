@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using RestWithAPI.Model;
-using RestWithAPI04.Data.Converter;
-using RestWithAPI04.Data.VO;
+using RestWithAPI.Data.Converter;
+using RestWithAPI.Data.VO;
 
-namespace RestWithAPI04.Data.Converters
+namespace RestWithAPI.Data.Converters
 {
     public class BookConverter : IParser<BookVO, Books>, IParser<Books, BookVO>
     {

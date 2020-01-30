@@ -19,10 +19,10 @@ using MySql.Data.MySqlClient;
 using RestWithAPI.Repository.Generic;
 using Tapioca.HATEOAS;
 using RestWithAPI.HiperMedia;
-using RestWithAPI04.Data.Converters;
-using RestWithAPI04.Data.Converter;
+using RestWithAPI.Data.Converters;
+using RestWithAPI.Data.Converter;
 
-namespace RestWithAPI06
+namespace RestWithAPI
 {
     public class Startup
     {
@@ -85,7 +85,7 @@ namespace RestWithAPI06
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "DefaultApi",
-                    template: "{controller=Values}/{id?}");
+                    template: "{Controller=Values}/{id?}");
             });
         }
     }

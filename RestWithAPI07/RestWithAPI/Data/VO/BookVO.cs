@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace RestWithAPI04.Data.VO
+namespace RestWithAPI.Data.VO
 {
     [DataContract]
     public class BookVO

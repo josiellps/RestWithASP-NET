@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using RestWithAPI.Model;
-using RestWithAPI04.Data.VO;
+using RestWithAPI.Data.VO;
 
 namespace RestWithAPI.Business
 {
